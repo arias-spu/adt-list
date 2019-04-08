@@ -1,0 +1,31 @@
+#ifndef LIST_H
+#define LIST_H
+
+#include "object.h"
+
+#include <string>
+#include <iostream>
+using std::string;
+using std::istream;
+using std::ostream;
+
+class List{
+private:
+	size_t _size;
+public:
+	List();
+	virtual ~List();
+	virtual bool Insert(Object* element) = 0;
+	virtual int IndexOf(Object* element)const = 0;
+	virtual Object* Remove(size_t position) = 0;
+	virtual Object* Get(size_t position) = 0;
+	virtual string ToString()const = 0;
+	virtual ostream& Write(ostream&)const = 0;
+	virtual istream& Read(istream&) = 0;
+	size_t Size()const;
+	bool IsEmpty()const;
+
+};
+
+
+#endif
