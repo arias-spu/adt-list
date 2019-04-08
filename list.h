@@ -15,7 +15,7 @@ private:
 public:
 	List();
 	virtual ~List();
-	virtual bool Insert(Object* element) = 0;
+	virtual bool Insert(Object* element, size_t position) = 0;
 	virtual int IndexOf(Object* element)const = 0;
 	virtual Object* Remove(size_t position) = 0;
 	virtual Object* Get(size_t position) = 0;
@@ -24,6 +24,7 @@ public:
 	virtual istream& Read(istream&) = 0;
 	size_t Size()const;
 	bool IsEmpty()const;
+	virtual void Clear() = 0;
 
 };
 
