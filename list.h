@@ -9,7 +9,7 @@ using std::string;
 using std::istream;
 using std::ostream;
 
-class List{
+class List : public Object{
 private:
 	size_t _size;
 public:
