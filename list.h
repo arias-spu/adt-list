@@ -10,7 +10,7 @@ using std::istream;
 using std::ostream;
 
 class List : public Object{
-private:
+protected:
 	size_t _size;
 public:
 	List();

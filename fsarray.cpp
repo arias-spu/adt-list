@@ -16,6 +16,7 @@ FSArray::FSArray(size_t capacity) : _capacity(capacity){
 }
 FSArray::FSArray(const FSArray& list) : _capacity(list._capacity){
 	// Is there a bug here?
+	_size = list._size;
 	_data = new Object*[_capacity];
 	for (size_t i = 0; i < _capacity; i++) {
 		_data[i] = list.Get(i)->Clone();
