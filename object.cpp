@@ -23,3 +23,6 @@ bool Object::Equals(const Object& rhs)const{
 		return false;
 	}
 }
+Object* Object::Clone()const{
+	return new Object();
+}

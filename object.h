@@ -11,6 +11,7 @@ public:
 	virtual ~Object();
 	virtual string ToString()const;
 	virtual bool Equals(const Object& rhs)const;
+	virtual Object* Clone()const;
 };
 
 #endif
