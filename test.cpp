@@ -5,13 +5,29 @@
 
 #include <cassert>
 #include <iostream>
+#include <string>
 using std::cout;
 using std::endl;
+using std::string;
+
+void Test(List*, const string&);
 
 
 int main(int argc, char* argv[]){
+	Test(new FSArray(5), "Fixed Size Array List");
+	// Later:
+	/*
+	Test(new VSArray(5), "Fixed Size Array List");
+	Test(new LinkedList(), "Fixed Size Array List");
+	Test(new DoubleLinkedList(5), "Fixed Size Array List");
+	*/
+
+	return 0;
+}
+
+void Test(List* list, const string& message){
+	cout << "TESTING: " << message << endl << endl;
 	size_t passed = 0;
-	List* list = new FSArray(5);
 
 	assert(list->Size() == 0);
 	cout << "\t" << ++passed << "\tTests Passed" << endl;
@@ -130,5 +146,5 @@ int main(int argc, char* argv[]){
 	cout << "\t" << ++passed << "\tTests Passed" << endl;
 	cout << "= = = = = = = = = = = = = = = = = = = = = " << endl;
 	cout << endl << "F i n i s h e d   S u c c e s s f u l l y" << endl;
-	return 0;
+
 }
