@@ -24,8 +24,6 @@ class FSArray : public List{
 		virtual Object* Remove(size_t position);
 		virtual Object* Get(size_t position)const;
 		virtual string ToString()const;
-		virtual ostream& Write(ostream&)const;
-		virtual istream& Read(istream&);
 		virtual void Clear();
 
 };

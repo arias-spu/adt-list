@@ -21,11 +21,11 @@ integer.o:	object.h integer.h integer.cpp
 person.o:	object.h person.h person.cpp
 	g++ -c person.cpp -o person.o $(CFLAGS)
 
-test:	test.o object.o fsarray.o list.o integer.o person.o
+test:	test.o object.o fsarray.o list.o person.o integer.o 
 	g++ test.o object.o fsarray.o list.o integer.o person.o -o list $(CFLAGS)
 
 test.o:	test.cpp fsarray.h list.h integer.h person.h object.h
-	g++ -c test.cpp -o main.o $(CFLAGS)
+	g++ -c test.cpp -o test.o $(CFLAGS)
 
 clean:
-	rm test list *.o
+	rm list *.o

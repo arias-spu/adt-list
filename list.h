@@ -20,8 +20,6 @@ public:
 	virtual Object* Remove(size_t position) = 0;
 	virtual Object* Get(size_t position)const = 0;
 	virtual string ToString()const = 0;
-	virtual ostream& Write(ostream&)const = 0;
-	virtual istream& Read(istream&) = 0;
 	size_t Size()const;
 	bool IsEmpty()const;
 	virtual void Clear() = 0;
