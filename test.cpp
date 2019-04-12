@@ -14,6 +14,8 @@ void Test(List*, const string&);
 
 
 int main(int argc, char* argv[]){
+	// It does not compile, List is an abstract class
+	//Test(new List(), "General List");
 	Test(new FSArray(5), "Fixed Size Array List");
 	// Later:
 	/*

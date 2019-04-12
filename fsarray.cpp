@@ -107,7 +107,7 @@ string FSArray::ToString()const{
 	return retVal.str();
 }
 void FSArray::Clear(){
-	for (size_t i = 0; i < Size(); i++) {
+	for (size_t i = 0; i < _size; i++) {
 		delete _data[i];
 		_data[i] = nullptr;
 	}
