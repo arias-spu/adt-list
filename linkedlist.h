@@ -1,6 +1,11 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
+#include "object.h"
+#include "list.h"
+
+#include <string>
+using std::string;
 
 class LinkedList : public Object{
 		struct Node{
