@@ -1,23 +1,24 @@
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef VSARRAY_H
+#define VSARRAY_H
 
 #include "object.h"
 #include "list.h"
 
 #include <string>
+#include <iostream>
 using std::string;
+using std::istream;
+using std::ostream;
 
-class LinkedList : public List{
-		struct Node{
-			Object* data;
-			Node* next;
-		};
-		Node* _head;
-		LinkedList(const LinkedList&);
-		const LinkedList& operator=(const LinkedList&);
+class VSArray : public List{
+		Object** _data;
+		size_t _capacity;
+		VSArray(const VSArray&);
+		const VSArray& operator=(const VSArray&);
+		void Resize();
 	public:
-		LinkedList();
-		virtual ~LinkedList();
+		VSArray(size_t capacity);
+		virtual ~VSArray();
 
 		virtual bool Insert(Object* element, size_t position);
 		virtual int IndexOf(Object* element)const;
@@ -25,7 +26,8 @@ class LinkedList : public List{
 		virtual Object* Get(size_t position)const;
 		virtual string ToString()const;
 		virtual void Clear();
+
 };
 
 
-#endif /* end of include guard: LINKEDLIST_H */
+#endif

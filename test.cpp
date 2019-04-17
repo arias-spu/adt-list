@@ -2,6 +2,8 @@
 #include "integer.h"
 #include "list.h"
 #include "fsarray.h"
+#include "vsarray.h"
+#include "linkedlist.h"
 
 #include <cassert>
 #include <iostream>
@@ -10,24 +12,32 @@ using std::cout;
 using std::endl;
 using std::string;
 
-void Test(List*, const string&);
+void Test(List*, const string&, bool=true);
 
 
 int main(int argc, char* argv[]){
 	// It does not compile, List is an abstract class
 	//Test(new List(), "General List");
+
+	cout << "Fixed Size Array List Tests" << endl;
 	Test(new FSArray(5), "Fixed Size Array List");
+
+	cout << "Linked List Tests" << endl;
+	Test(new LinkedList(), "Linked List", false);
+
+
+	// Test(new VSArray(5) , "Variable Size Array List", false);
+
+
 	// Later:
 	/*
-	Test(new VSArray(5), "Fixed Size Array List");
-	Test(new LinkedList(), "Fixed Size Array List");
-	Test(new DoubleLinkedList(5), "Fixed Size Array List");
+	Test(new DoubleLinkedList(5), "Fixed Size Array List", false);
 	*/
 
 	return 0;
 }
 
-void Test(List* list, const string& message){
+void Test(List* list, const string& message, bool fixedSize){
 	cout << "TESTING: " << message << endl << endl;
 	size_t passed = 0;
 
@@ -106,8 +116,21 @@ void Test(List* list, const string& message){
 	assert(list->Size() == 5);
 	cout << "\t" << ++passed << "\tTests Passed" << endl;
 
-	for (size_t i = 0; i < list->Size(); i++) {
-		assert(list->Insert(integer, i) == false);
+	if (fixedSize){
+		for (size_t i = 0; i < list->Size(); i++) {
+			assert(list->Insert(integer, i) == false);
+			cout << "\t" << ++passed << "\tTests Passed" << endl;
+		}
+	}else{
+		assert(list->Insert(new Person("Violet", 1),  list->Size()) == true);
+		cout << "\t" << ++passed << "\tTests Passed" << endl;
+		assert(list->Size() == 6);
+		cout << "\t" << ++passed << "\tTests Passed" << endl;
+		assert( (object = list->Remove(5)) != nullptr );
+		cout << "\t" << ++passed << "\tTests Passed" << endl;
+		assert(object->ToString() == "Person: {name: Violet, age: 1}");
+		cout << "\t" << ++passed << "\tTests Passed" << endl;
+		assert(list->Size() == 5);
 		cout << "\t" << ++passed << "\tTests Passed" << endl;
 	}
 
