@@ -4,6 +4,7 @@
 #include "fsarray.h"
 #include "vsarray.h"
 #include "linkedlist.h"
+#include "dlinkedlist.h"
 
 #include <cassert>
 #include <iostream>
@@ -25,14 +26,10 @@ int main(int argc, char* argv[]){
 	cout << "Linked List Tests" << endl;
 	Test(new LinkedList(), "Linked List", false);
 
+	cout << "Double Linked List Tests" << endl;
+	Test(new DLinkedList(), "Double Linked List", false);
 
 	// Test(new VSArray(5) , "Variable Size Array List", false);
-
-
-	// Later:
-	/*
-	Test(new DoubleLinkedList(5), "Fixed Size Array List", false);
-	*/
 
 	return 0;
 }
