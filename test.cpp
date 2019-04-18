@@ -23,13 +23,16 @@ int main(int argc, char* argv[]){
 	cout << "Fixed Size Array List Tests" << endl;
 	Test(new FSArray(5), "Fixed Size Array List");
 
+	cout << "Variable Size List Tests" << endl;
+	Test(new VSArray(5) , "Variable Size Array List", false);
+
+/*
 	cout << "Linked List Tests" << endl;
 	Test(new LinkedList(), "Linked List", false);
 
 	cout << "Double Linked List Tests" << endl;
 	Test(new DLinkedList(), "Double Linked List", false);
-
-	// Test(new VSArray(5) , "Variable Size Array List", false);
+*/
 
 	return 0;
 }
